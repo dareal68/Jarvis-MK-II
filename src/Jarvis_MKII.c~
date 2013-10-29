@@ -1,0 +1,92 @@
+#include "pebble_os.h"
+#include "pebble_app.h"
+//#include "pebble_fonts.h"
+
+
+#define MY_UUID { 0xFF, 0x81, 0x6C, 0xB5, 0xB4, 0xB8, 0x46, 0x85, 0x9D, 0x03, 0x69, 0x22, 0xDC, 0x2D, 0x27, 0x09 }
+PBL_APP_INFO(MY_UUID,
+             "Jarvis MK II", "Denice Corp.",
+             1, 0, /* App version */
+             DEFAULT_MENU_ICON,
+             APP_INFO_WATCH_FACE);
+
+
+Window window;
+TextLayer hello_layer;
+Layer date_layer;
+Layer time_layer;
+Layer right_lines_layer;
+
+
+
+
+void date_layer_update_callback(Layer *me, GContext* ctx) {
+
+// External circle
+graphics_context_set_fill_color(ctx, GColorWhite);
+graphics_draw_circle(ctx, GPoint(18, 18), 32);
+graphics_draw_circle(ctx, GPoint(18, 18), 33);
+
+// Internal circle
+graphics_draw_circle(ctx, GPoint(18, 18), 28);
+graphics_draw_circle(ctx, GPoint(18, 18), 27);
+}
+
+void time_layer_update_callback(Layer *me, GContext* ctx) {
+
+// Horizontal Lines
+graphics_context_set_fill_color(ctx, GColorWhite);
+graphics_draw_line(ctx, GPoint(1, 0), GPoint(90, 0));
+graphics_draw_line(ctx, GPoint(4, 20), GPoint(90, 20));
+graphics_draw_line(ctx, GPoint(10, 24), GPoint(93, 24));
+graphics_draw_line(ctx, GPoint(90, 7), GPoint(93, 7));
+
+// Vertical Lines
+graphics_draw_line(ctx, GPoint(90, 0), GPoint(90, 20));
+graphics_draw_line(ctx, GPoint(93, 7), GPoint(93, 24));
+
+}
+
+
+
+void right_lines_layer_update_callback(Layer *me, GContext* ctx) {
+
+graphics_draw_line(ctx, GPoint(1, 0), GPoint(1, 115));
+graphics_draw_line(ctx, GPoint(5, 0), GPoint(5, 85));
+
+}
+
+void handle_init(AppContextRef ctx) {
+
+  window_init(&window, "Window Name");
+  window_stack_push(&window, true /* Animated */); 
+  window_set_fullscreen(&window, true);
+  window_set_background_color(&window, GColorBlack);
+
+
+  // Init the layer for DATE
+  layer_init(&date_layer, GRect(0, 0, 51, 51));
+  date_layer.update_proc = &date_layer_update_callback;
+  layer_add_child(&window.layer, &date_layer);
+
+
+  // Init the layer for TIME
+  layer_init(&time_layer, GRect(47, 3, 94, 30));
+  time_layer.update_proc = &time_layer_update_callback;
+  layer_add_child(&window.layer, &time_layer);
+
+
+  // Init the layer RIGHT LINES
+  layer_init(&right_lines_layer, GRect(125, 24, 34, 115));
+  right_lines_layer.update_proc = &right_lines_layer_update_callback;
+  layer_add_child(&window.layer, &right_lines_layer);
+
+}
+
+
+void pbl_main(void *params) {
+  PebbleAppHandlers handlers = {
+    .init_handler = &handle_init
+  };
+  app_event_loop(params, &handlers);
+}
