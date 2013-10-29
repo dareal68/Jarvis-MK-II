@@ -82,26 +82,26 @@
            ,
            {
            "type": "font",
-           "defName": "FONT_IRONMAN_21",
-           "file": "fonts/Ironman.ttf"
+           "defName": "FONT_MAKISUPA_21",
+           "file": "fonts/Makisupa.ttf"
            }
            ,
            {
            "type": "font",
-           "defName": "FONT_IRONMAN_12",
-           "file": "fonts/Ironman.ttf"
+           "defName": "FONT_MAKISUPA_12",
+           "file": "fonts/Makisupa.ttf"
            }
            ,
            {
            "type": "font",
-           "defName": "FONT_MICRO_15",
-           "file": "fonts/Micro.ttf"
+           "defName": "FONT_VISITOR_10",
+           "file": "fonts/Visitor.ttf"
            }
            ,
            {
            "type": "font",
-           "defName": "FONT_IRONMAN_30",
-           "file": "fonts/Ironman.ttf"
+           "defName": "FONT_MAKISUPA_26",
+           "file": "fonts/Makisupa.ttf"
            }
  ]
 }

@@ -80,17 +80,17 @@ static AppTimerHandle timerUpdateMusic = 0;
 
 
 /* DELETE WEATHER IMAGE
-const int WEATHER_IMG_IDS[] = {
-    RESOURCE_ID_IMAGE_SUN,
-    RESOURCE_ID_IMAGE_RAIN,
-    RESOURCE_ID_IMAGE_CLOUD,
-    RESOURCE_ID_IMAGE_SUN_CLOUD,
-    RESOURCE_ID_IMAGE_FOG,
-    RESOURCE_ID_IMAGE_WIND,
-    RESOURCE_ID_IMAGE_SNOW,
-    RESOURCE_ID_IMAGE_THUNDER
-};
-*/
+ const int WEATHER_IMG_IDS[] = {
+ RESOURCE_ID_IMAGE_SUN,
+ RESOURCE_ID_IMAGE_RAIN,
+ RESOURCE_ID_IMAGE_CLOUD,
+ RESOURCE_ID_IMAGE_SUN_CLOUD,
+ RESOURCE_ID_IMAGE_FOG,
+ RESOURCE_ID_IMAGE_WIND,
+ RESOURCE_ID_IMAGE_SNOW,
+ RESOURCE_ID_IMAGE_THUNDER
+ };
+ */
 
 
 
@@ -210,11 +210,11 @@ void rcv(DictionaryIterator *received, void *context) {
         
 	}
     /*
-	t=dict_find(received, SM_WEATHER_ICON_KEY);
-	if (t!=NULL) {
-		bitmap_layer_set_bitmap(&weather_image, &weather_status_imgs[t->value->uint8].bmp);
-	}
-    */
+     t=dict_find(received, SM_WEATHER_ICON_KEY);
+     if (t!=NULL) {
+     bitmap_layer_set_bitmap(&weather_image, &weather_status_imgs[t->value->uint8].bmp);
+     }
+     */
 	t=dict_find(received, SM_COUNT_BATTERY_KEY);
 	if (t!=NULL) {
 		batteryPercent = t->value->uint8;
@@ -378,16 +378,16 @@ void config_provider(ClickConfig **config, Window *window) {
 }
 
 /* DELETE BATTERY FILLING FUNCTION
-void battery_layer_update_callback(Layer *me, GContext* ctx) {
-	
-	//draw the remaining battery percentage
-	graphics_context_set_stroke_color(ctx, GColorBlack);
-	graphics_context_set_fill_color(ctx, GColorWhite);
-    
-	graphics_fill_rect(ctx, GRect(2+16-(int)((batteryPercent/100.0)*16.0), 2, (int)((batteryPercent/100.0)*16.0), 8), 0, GCornerNone);
-	
-}
-*/
+ void battery_layer_update_callback(Layer *me, GContext* ctx) {
+ 
+ //draw the remaining battery percentage
+ graphics_context_set_stroke_color(ctx, GColorBlack);
+ graphics_context_set_fill_color(ctx, GColorWhite);
+ 
+ graphics_fill_rect(ctx, GRect(2+16-(int)((batteryPercent/100.0)*16.0), 2, (int)((batteryPercent/100.0)*16.0), 8), 0, GCornerNone);
+ 
+ }
+ */
 
 void handle_status_appear(Window *window)
 {
@@ -408,56 +408,55 @@ void reset() {
 	
 	//layer_set_hidden(&text_weather_temp_layer.layer, true);
 	//layer_set_hidden(&text_weather_cond_layer.layer, false);
-	text_layer_set_text(&text_weather_cond_layer, "Updating..."); 	
+	text_layer_set_text(&text_weather_cond_layer, "Updating...");
 	
 }
 
-
 // DRAW BACKGROUND LINES
 void background_layer_update_callback(Layer *me, GContext* ctx) {
-
-graphics_context_set_fill_color(ctx, GColorWhite); //Set fill color
-
-graphics_draw_circle(ctx, GPoint(18, 18), 32); // External circle up left
-graphics_draw_circle(ctx, GPoint(18, 18), 28); // Internal circle up left
     
-/*
-    graphics_fill_circle(ctx, GPoint(133, 160), 22); // circle bottom right white
-    graphics_context_set_fill_color(ctx, GColorBlack);
-    graphics_fill_circle(ctx, GPoint(133, 160), 20); // circle bottom right black
-*/
-
-// Horizontal lines
-graphics_draw_line(ctx, GPoint(46, 1), GPoint(138, 1)); //1
-graphics_draw_line(ctx, GPoint(48, 31), GPoint(138, 31)); //2
-graphics_draw_line(ctx, GPoint(56, 36), GPoint(142, 36)); //3
-graphics_draw_line(ctx, GPoint(138, 6), GPoint(142, 6)); //SMALL
-
-
+    graphics_context_set_fill_color(ctx, GColorWhite); //Set fill color
     
-// Diagonal lines
-//
-
-
-// Vertical lines
-graphics_draw_line(ctx, GPoint(138, 1), GPoint(138, 31)); //CADRE LEFT
-graphics_draw_line(ctx, GPoint(142, 6), GPoint(142, 36)); //CADRE RIGHT 
-graphics_draw_line(ctx, GPoint(125, 31), GPoint(125, 120)); //DECO LEFT
-graphics_draw_line(ctx, GPoint(130, 31), GPoint(130, 100)); //DECO RIGHT
-
-
+    graphics_draw_circle(ctx, GPoint(18, 18), 32); // External circle up left
+    graphics_draw_circle(ctx, GPoint(18, 18), 28); // Internal circle up left
     
-// Carrés déco
-graphics_fill_rect(ctx, GRect(124, 123, 3, 3), 0, GCornerNone); //LEFT
-graphics_fill_rect(ctx, GRect(129, 103, 3, 3), 0, GCornerNone); //RIGHT
+    /*
+     graphics_fill_circle(ctx, GPoint(133, 160), 22); // circle bottom right white
+     graphics_context_set_fill_color(ctx, GColorBlack);
+     graphics_fill_circle(ctx, GPoint(133, 160), 20); // circle bottom right black
+     */
     
-// Rectangle déco
-graphics_fill_rect(ctx, GRect(134, 50, 3, 45), 0, GCornerNone); //WHITE
-graphics_context_set_fill_color(ctx, GColorBlack); //Set fill color
-graphics_fill_rect(ctx, GRect(136, 55, 3, 30), 0, GCornerNone); //BLACK
-
-
-
+    // Horizontal lines
+    graphics_draw_line(ctx, GPoint(46, 1), GPoint(138, 1)); //1
+    graphics_draw_line(ctx, GPoint(48, 31), GPoint(138, 31)); //2
+    graphics_draw_line(ctx, GPoint(56, 36), GPoint(142, 36)); //3
+    graphics_draw_line(ctx, GPoint(138, 6), GPoint(142, 6)); //SMALL
+    
+    
+    
+    // Diagonal lines
+    //
+    
+    
+    // Vertical lines
+    graphics_draw_line(ctx, GPoint(138, 1), GPoint(138, 31)); //CADRE LEFT
+    graphics_draw_line(ctx, GPoint(142, 6), GPoint(142, 36)); //CADRE RIGHT
+    graphics_draw_line(ctx, GPoint(125, 31), GPoint(125, 120)); //DECO LEFT
+    graphics_draw_line(ctx, GPoint(130, 31), GPoint(130, 100)); //DECO RIGHT
+    
+    
+    
+    // Carrés déco
+    graphics_fill_rect(ctx, GRect(124, 123, 3, 3), 0, GCornerNone); //LEFT
+    graphics_fill_rect(ctx, GRect(129, 103, 3, 3), 0, GCornerNone); //RIGHT
+    
+    // Rectangle déco
+    graphics_fill_rect(ctx, GRect(134, 50, 3, 45), 0, GCornerNone); //WHITE
+    graphics_context_set_fill_color(ctx, GColorBlack); //Set fill color
+    graphics_fill_rect(ctx, GRect(136, 55, 3, 30), 0, GCornerNone); //BLACK
+    
+    
+    
 }
 
 
@@ -471,20 +470,20 @@ void line_layer_update_callback(Layer *me, GContext* ctx) {
     graphics_draw_circle(ctx, GPoint(133, 64), 20); // circle bottom right
     graphics_draw_circle(ctx, GPoint(21, 56), 31); //circle bottom left grand
     graphics_draw_circle(ctx, GPoint(21, 56), 27); //circle bottom left petit
-
-    graphics_draw_line(ctx, GPoint(70, 44), GPoint(114, 44));// UNDER WEATHER COND
-    graphics_draw_line(ctx, GPoint(2, 14), GPoint(37, 14));// UNDER POWER WORD
+    
+    graphics_draw_line(ctx, GPoint(68, 44), GPoint(114, 44));// UNDER WEATHER COND
+    graphics_draw_line(ctx, GPoint(2, 14), GPoint(36, 14));// UNDER POWER WORD
     
     graphics_draw_line(ctx, GPoint(114, 44), GPoint(120, 48));// UNDER WEATHER COND
     
-    graphics_draw_line(ctx, GPoint(2, 2), GPoint(2, 14)); //LEFT POWER WORD
+    graphics_draw_line(ctx, GPoint(2, 5), GPoint(2, 14)); //LEFT POWER WORD
     //graphics_draw_line(ctx, GPoint(37, 9), GPoint(37, 14)); //RIGHT POWER WORD
     graphics_draw_line(ctx, GPoint(20, 14), GPoint(20, 25)); //UNDER POWER WORD
-
+    
 }
 void handle_init(AppContextRef ctx) {
     (void)ctx;
-
+    
     g_app_context = ctx;
     
 	window_init(&window, "Window Name");
@@ -499,11 +498,11 @@ void handle_init(AppContextRef ctx) {
 	resource_init_current_app(&APP_RESOURCES);
     
     /* REMOVE WEATHER IMAGE
-	//init weather images
-	for (int i=0; i<NUM_WEATHER_IMAGES; i++) {
-		heap_bitmap_init(&weather_status_imgs[i], WEATHER_IMG_IDS[i]);
-	}
-	*/
+     //init weather images
+     for (int i=0; i<NUM_WEATHER_IMAGES; i++) {
+     heap_bitmap_init(&weather_status_imgs[i], WEATHER_IMG_IDS[i]);
+     }
+     */
 	heap_bitmap_init(&bg_image, RESOURCE_ID_IMAGE_BACKGROUND);
     
     
@@ -518,7 +517,7 @@ void handle_init(AppContextRef ctx) {
 	text_layer_set_text_color(&text_date_day_layer, GColorWhite);
 	text_layer_set_background_color(&text_date_day_layer, GColorClear);
 	layer_set_frame(&text_date_day_layer.layer, GRect(-53, 8, 144, 30));
-	text_layer_set_font(&text_date_day_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_30)));
+	text_layer_set_font(&text_date_day_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_26)));
 	layer_add_child(&window.layer, &text_date_day_layer.layer);
     
     //init layer for date month
@@ -527,16 +526,16 @@ void handle_init(AppContextRef ctx) {
 	text_layer_set_text_color(&text_date_month_layer, GColorWhite);
 	text_layer_set_background_color(&text_date_month_layer, GColorClear);
 	layer_set_frame(&text_date_month_layer.layer, GRect(-53, 0, 144, 30));
-	text_layer_set_font(&text_date_month_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_12)));
+	text_layer_set_font(&text_date_month_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_12)));
 	layer_add_child(&window.layer, &text_date_month_layer.layer);
     
     //init layer for time
 	text_layer_init(&text_time_layer, window.layer.frame);
-	text_layer_set_text_alignment(&text_time_layer, GTextAlignmentCenter);
+	text_layer_set_text_alignment(&text_time_layer, GTextAlignmentRight);
 	text_layer_set_text_color(&text_time_layer, GColorWhite);
 	text_layer_set_background_color(&text_time_layer, GColorClear);
-	layer_set_frame(&text_time_layer.layer, GRect(35, -2, 144, 50));
-	text_layer_set_font(&text_time_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_30)));
+	layer_set_frame(&text_time_layer.layer, GRect(-10, 1, 144, 50));
+	text_layer_set_font(&text_time_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_26)));
 	layer_add_child(&window.layer, &text_time_layer.layer);
     
     
@@ -547,17 +546,17 @@ void handle_init(AppContextRef ctx) {
 	text_layer_set_text_alignment(&text_battery_layer, GTextAlignmentCenter);
 	text_layer_set_text_color(&text_battery_layer, GColorWhite);
 	text_layer_set_background_color(&text_battery_layer, GColorClear);
-    text_layer_set_font(&text_battery_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_30)));
+    text_layer_set_font(&text_battery_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_26)));
     
 	layer_add_child(&animated_layer[INFO_LAYER], &text_battery_layer.layer);
 	text_layer_set_text(&text_battery_layer, "-");
     
     
-    text_layer_init(&text_weather_cond_layer, GRect(70, 25, 70, 70)); // GRect(5, 2, 47, 40)
+    text_layer_init(&text_weather_cond_layer, GRect(70, 32, 70, 70)); // GRect(5, 2, 47, 40)
 	text_layer_set_text_alignment(&text_weather_cond_layer, GTextAlignmentLeft);
 	text_layer_set_text_color(&text_weather_cond_layer, GColorWhite);
 	text_layer_set_background_color(&text_weather_cond_layer, GColorClear);
-	text_layer_set_font(&text_weather_cond_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MICRO_15)));
+	text_layer_set_font(&text_weather_cond_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_VISITOR_10)));
 	layer_add_child(&animated_layer[INFO_LAYER], &text_weather_cond_layer.layer);
     
 	layer_set_hidden(&text_weather_cond_layer.layer, false);
@@ -569,7 +568,7 @@ void handle_init(AppContextRef ctx) {
 	text_layer_set_text_alignment(&text_weather_temp_layer, GTextAlignmentRight);
 	text_layer_set_text_color(&text_weather_temp_layer, GColorWhite);
 	text_layer_set_background_color(&text_weather_temp_layer, GColorClear);
-	text_layer_set_font(&text_weather_temp_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_21)));
+	text_layer_set_font(&text_weather_temp_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_21)));
 	layer_add_child(&animated_layer[INFO_LAYER], &text_weather_temp_layer.layer);
 	text_layer_set_text(&text_weather_temp_layer, "-°");
     
@@ -579,14 +578,14 @@ void handle_init(AppContextRef ctx) {
     line_layer.update_proc = &line_layer_update_callback;
     layer_add_child(&animated_layer[INFO_LAYER], &line_layer);
     
-    text_layer_init(&text_write_power_layer, GRect(6, -5, 30, 18)); // GRect(5, 2, 47, 40)
+    text_layer_init(&text_write_power_layer, GRect(5, 2, 30, 18)); // GRect(5, 2, 47, 40)
 	text_layer_set_text_alignment(&text_write_power_layer, GTextAlignmentLeft);
 	text_layer_set_text_color(&text_write_power_layer, GColorWhite);
 	text_layer_set_background_color(&text_write_power_layer, GColorClear);
-	text_layer_set_font(&text_write_power_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MICRO_15)));
+	text_layer_set_font(&text_write_power_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_VISITOR_10)));
 	layer_add_child(&animated_layer[INFO_LAYER], &text_write_power_layer.layer);
 	text_layer_set_text(&text_write_power_layer, "Power");
-
+    
     
     
     
@@ -619,7 +618,6 @@ void handle_init(AppContextRef ctx) {
     //init music layer
     layer_init(&animated_layer[MUSIC_LAYER], GRect(288, 95, 144, 73));
     layer_add_child(&window.layer, &animated_layer[MUSIC_LAYER]);
-    
     text_layer_init(&music_artist_layer, GRect(6, 28, 132, 21));
     text_layer_set_text_alignment(&music_artist_layer, GTextAlignmentLeft);
     text_layer_set_text_color(&music_artist_layer, GColorWhite);
@@ -636,160 +634,159 @@ void handle_init(AppContextRef ctx) {
     text_layer_set_font(&music_song_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
     layer_add_child(&animated_layer[MUSIC_LAYER], &music_song_layer.layer);
     text_layer_set_text(&music_song_layer, "Title");
-
-
     
     
-/*
-______________________________________________________________________________________________________________________________________
-	//init weather layer and add weather image, weather condition, temperature, and battery indicator
-	layer_init(&weather_layer, GRect(0, 95, 144, 73));  //GRect(0, 78, 144, 45) tier inférieur
-	layer_add_child(&window.layer, &weather_layer);
     
+    /*
+     ______________________________________________________________________________________________________________________________________
+     //init weather layer and add weather image, weather condition, temperature, and battery indicator
+     layer_init(&weather_layer, GRect(0, 95, 144, 73));  //GRect(0, 78, 144, 45) tier inférieur
+     layer_add_child(&window.layer, &weather_layer);
+     
      DELETE EMPTY BATTERY ICON
-	heap_bitmap_init(&battery_image, RESOURCE_ID_IMAGE_BATTERY);
-    
-	bitmap_layer_init(&battery_image_layer, GRect(107, 8, 23, 14));
-	layer_add_child(&weather_layer, &battery_image_layer.layer);
-	bitmap_layer_set_bitmap(&battery_image_layer, &battery_image.bmp);
- 
-    
-	text_layer_init(&text_battery_layer, GRect(-3, 24, 60, 30));
-	text_layer_set_text_alignment(&text_battery_layer, GTextAlignmentCenter);
-	text_layer_set_text_color(&text_battery_layer, GColorWhite);
-	text_layer_set_background_color(&text_battery_layer, GColorClear);
-    text_layer_set_font(&text_battery_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_21)));
-
-	layer_add_child(&weather_layer, &text_battery_layer.layer);
-	text_layer_set_text(&text_battery_layer, "-");
-    
-    //Write POWER text on the background
-    
-    text_layer_init(&text_write_power_layer, GRect(5, 90, 30, 18)); // GRect(5, 2, 47, 40)
-	text_layer_set_text_alignment(&text_write_power_layer, GTextAlignmentLeft);
-	text_layer_set_text_color(&text_write_power_layer, GColorWhite);
-	text_layer_set_background_color(&text_write_power_layer, GColorClear);
-	text_layer_set_font(&text_write_power_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MICRO_15)));
-	layer_add_child(&window.layer, &text_write_power_layer.layer);
-	text_layer_set_text(&text_write_power_layer, "Power");
-
-    
+     heap_bitmap_init(&battery_image, RESOURCE_ID_IMAGE_BATTERY);
+     
+     bitmap_layer_init(&battery_image_layer, GRect(107, 8, 23, 14));
+     layer_add_child(&weather_layer, &battery_image_layer.layer);
+     bitmap_layer_set_bitmap(&battery_image_layer, &battery_image.bmp);
+     
+     
+     text_layer_init(&text_battery_layer, GRect(-3, 24, 60, 30));
+     text_layer_set_text_alignment(&text_battery_layer, GTextAlignmentCenter);
+     text_layer_set_text_color(&text_battery_layer, GColorWhite);
+     text_layer_set_background_color(&text_battery_layer, GColorClear);
+     text_layer_set_font(&text_battery_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_21)));
+     
+     layer_add_child(&weather_layer, &text_battery_layer.layer);
+     text_layer_set_text(&text_battery_layer, "-");
+     
+     //Write POWER text on the background
+     
+     text_layer_init(&text_write_power_layer, GRect(5, 90, 30, 18)); // GRect(5, 2, 47, 40)
+     text_layer_set_text_alignment(&text_write_power_layer, GTextAlignmentLeft);
+     text_layer_set_text_color(&text_write_power_layer, GColorWhite);
+     text_layer_set_background_color(&text_write_power_layer, GColorClear);
+     text_layer_set_font(&text_write_power_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MICRO_15)));
+     layer_add_child(&window.layer, &text_write_power_layer.layer);
+     text_layer_set_text(&text_write_power_layer, "Power");
+     
+     
      DELETE FILLING BATTERY ICON
-	layer_init(&battery_layer, GRect(109, 9, 19, 11));
-	battery_layer.update_proc = &battery_layer_update_callback;
-	layer_add_child(&weather_layer, &battery_layer);
-    
-	batteryPercent = 100;
-	layer_mark_dirty(&battery_layer);
- 
-    
-	text_layer_init(&text_weather_cond_layer, GRect(70, 8, 144-70, 56-8)); // GRect(5, 2, 47, 40)
-	text_layer_set_text_alignment(&text_weather_cond_layer, GTextAlignmentLeft);
-	text_layer_set_text_color(&text_weather_cond_layer, GColorWhite);
-	text_layer_set_background_color(&text_weather_cond_layer, GColorClear);
-	text_layer_set_font(&text_weather_cond_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MICRO_15)));
-	layer_add_child(&weather_layer, &text_weather_cond_layer.layer);
-    
-	layer_set_hidden(&text_weather_cond_layer.layer, false);
-	text_layer_set_text(&text_weather_cond_layer, "Updating...");
-	
- 
-	weather_img = 0;
-    
-	bitmap_layer_init(&weather_image, GRect(5, 2, 40, 40)); // GRect(52, 2, 40, 40)
-	layer_add_child(&weather_layer, &weather_image.layer);
-	bitmap_layer_set_bitmap(&weather_image, &weather_status_imgs[0].bmp);
- 
-    
-    text_layer_init(&text_weather_temp_layer, GRect(144-47, 30, 48, 22)); // GRect(98, 4, 47, 40)
-	text_layer_set_text_alignment(&text_weather_temp_layer, GTextAlignmentRight);
-	text_layer_set_text_color(&text_weather_temp_layer, GColorWhite);
-	text_layer_set_background_color(&text_weather_temp_layer, GColorClear);
-	text_layer_set_font(&text_weather_temp_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_21)));
-	layer_add_child(&weather_layer, &text_weather_temp_layer.layer);
-	text_layer_set_text(&text_weather_temp_layer, "-°");
-    
-	layer_set_hidden(&text_weather_temp_layer.layer, true);
-    
-	
-	//init layer for date
-	text_layer_init(&text_date_layer, window.layer.frame);
-	text_layer_set_text_alignment(&text_date_layer, GTextAlignmentCenter);
-	text_layer_set_text_color(&text_date_layer, GColorWhite);
-	text_layer_set_background_color(&text_date_layer, GColorClear);
-	layer_set_frame(&text_date_layer.layer, GRect(-53, 8, 144, 30));
-	text_layer_set_font(&text_date_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_30)));
-	layer_add_child(&window.layer, &text_date_layer.layer);
-    
-    //init layer for time
-	text_layer_init(&text_time_layer, window.layer.frame);
-	text_layer_set_text_alignment(&text_time_layer, GTextAlignmentCenter);
-	text_layer_set_text_color(&text_time_layer, GColorWhite);
-	text_layer_set_background_color(&text_time_layer, GColorClear);
-	layer_set_frame(&text_time_layer.layer, GRect(35, -3, 144, 50));
-	text_layer_set_font(&text_time_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IRONMAN_30)));
-	layer_add_child(&window.layer, &text_time_layer.layer);
-    
+     layer_init(&battery_layer, GRect(109, 9, 19, 11));
+     battery_layer.update_proc = &battery_layer_update_callback;
+     layer_add_child(&weather_layer, &battery_layer);
+     
+     batteryPercent = 100;
+     layer_mark_dirty(&battery_layer);
+     
+     
+     text_layer_init(&text_weather_cond_layer, GRect(70, 8, 144-70, 56-8)); // GRect(5, 2, 47, 40)
+     text_layer_set_text_alignment(&text_weather_cond_layer, GTextAlignmentLeft);
+     text_layer_set_text_color(&text_weather_cond_layer, GColorWhite);
+     text_layer_set_background_color(&text_weather_cond_layer, GColorClear);
+     text_layer_set_font(&text_weather_cond_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MICRO_15)));
+     layer_add_child(&weather_layer, &text_weather_cond_layer.layer);
+     
+     layer_set_hidden(&text_weather_cond_layer.layer, false);
+     text_layer_set_text(&text_weather_cond_layer, "Updating...");
+     
+     
+     weather_img = 0;
+     
+     bitmap_layer_init(&weather_image, GRect(5, 2, 40, 40)); // GRect(52, 2, 40, 40)
+     layer_add_child(&weather_layer, &weather_image.layer);
+     bitmap_layer_set_bitmap(&weather_image, &weather_status_imgs[0].bmp);
+     
+     
+     text_layer_init(&text_weather_temp_layer, GRect(144-47, 30, 48, 22)); // GRect(98, 4, 47, 40)
+     text_layer_set_text_alignment(&text_weather_temp_layer, GTextAlignmentRight);
+     text_layer_set_text_color(&text_weather_temp_layer, GColorWhite);
+     text_layer_set_background_color(&text_weather_temp_layer, GColorClear);
+     text_layer_set_font(&text_weather_temp_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_21)));
+     layer_add_child(&weather_layer, &text_weather_temp_layer.layer);
+     text_layer_set_text(&text_weather_temp_layer, "-°");
+     
+     layer_set_hidden(&text_weather_temp_layer.layer, true);
+     
+     
+     //init layer for date
+     text_layer_init(&text_date_layer, window.layer.frame);
+     text_layer_set_text_alignment(&text_date_layer, GTextAlignmentCenter);
+     text_layer_set_text_color(&text_date_layer, GColorWhite);
+     text_layer_set_background_color(&text_date_layer, GColorClear);
+     layer_set_frame(&text_date_layer.layer, GRect(-53, 8, 144, 30));
+     text_layer_set_font(&text_date_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_30)));
+     layer_add_child(&window.layer, &text_date_layer.layer);
+     
+     //init layer for time
+     text_layer_init(&text_time_layer, window.layer.frame);
+     text_layer_set_text_alignment(&text_time_layer, GTextAlignmentCenter);
+     text_layer_set_text_color(&text_time_layer, GColorWhite);
+     text_layer_set_background_color(&text_time_layer, GColorClear);
+     layer_set_frame(&text_time_layer.layer, GRect(35, -3, 144, 50));
+     text_layer_set_font(&text_time_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MAKISUPA_30)));
+     layer_add_child(&window.layer, &text_time_layer.layer);
+     
      DELETE CALENDAR, MUSIC INFO AND INFO
-	//init info layer
-   
-    layer_init(&animated_layer[INFO_LAYER], GRect(0, 124, 144, 45));
-    layer_add_child(&windows.layer, &animated_layer[INFO_LAYER]);
+     //init info layer
+     
+     layer_init(&animated_layer[INFO_LAYER], GRect(0, 124, 144, 45));
+     layer_add_child(&windows.layer, &animated_layer[INFO_LAYER]);
      
      
      
      
-    //init calendar layer
-	layer_init(&animated_layer[CALENDAR_LAYER], GRect(0, 124, 144, 45));
-	layer_add_child(&window.layer, &animated_layer[CALENDAR_LAYER]);
-	
-	text_layer_init(&calendar_date_layer, GRect(6, 0, 132, 21));
-	text_layer_set_text_alignment(&calendar_date_layer, GTextAlignmentLeft);
-	text_layer_set_text_color(&calendar_date_layer, GColorWhite);
-	text_layer_set_background_color(&calendar_date_layer, GColorClear);
-	text_layer_set_font(&calendar_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-	layer_add_child(&animated_layer[CALENDAR_LAYER], &calendar_date_layer.layer);
-	text_layer_set_text(&calendar_date_layer, "No Upcoming");
-    
-    
-	text_layer_init(&calendar_text_layer, GRect(6, 15, 132, 28));
-	text_layer_set_text_alignment(&calendar_text_layer, GTextAlignmentLeft);
-	text_layer_set_text_color(&calendar_text_layer, GColorWhite);
-	text_layer_set_background_color(&calendar_text_layer, GColorClear);
-	text_layer_set_font(&calendar_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-	layer_add_child(&animated_layer[CALENDAR_LAYER], &calendar_text_layer.layer);
-	text_layer_set_text(&calendar_text_layer, "Appointment");
-	
-	
-	
-	//init music layer
-	layer_init(&animated_layer[MUSIC_LAYER], GRect(144, 124, 144, 45));
-	layer_add_child(&window.layer, &animated_layer[MUSIC_LAYER]);
-	
-	text_layer_init(&music_artist_layer, GRect(6, 0, 132, 21));
-	text_layer_set_text_alignment(&music_artist_layer, GTextAlignmentLeft);
-	text_layer_set_text_color(&music_artist_layer, GColorWhite);
-	text_layer_set_background_color(&music_artist_layer, GColorClear);
-	text_layer_set_font(&music_artist_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-	layer_add_child(&animated_layer[MUSIC_LAYER], &music_artist_layer.layer);
-	text_layer_set_text(&music_artist_layer, "Artist");
-    
-    
-	text_layer_init(&music_song_layer, GRect(6, 15, 132, 28));
-	text_layer_set_text_alignment(&music_song_layer, GTextAlignmentLeft);
-	text_layer_set_text_color(&music_song_layer, GColorWhite);
-	text_layer_set_background_color(&music_song_layer, GColorClear);
-	text_layer_set_font(&music_song_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-	layer_add_child(&animated_layer[MUSIC_LAYER], &music_song_layer.layer);
-	text_layer_set_text(&music_song_layer, "Title");
-	*/
+     //init calendar layer
+     layer_init(&animated_layer[CALENDAR_LAYER], GRect(0, 124, 144, 45));
+     layer_add_child(&window.layer, &animated_layer[CALENDAR_LAYER]);
+     
+     text_layer_init(&calendar_date_layer, GRect(6, 0, 132, 21));
+     text_layer_set_text_alignment(&calendar_date_layer, GTextAlignmentLeft);
+     text_layer_set_text_color(&calendar_date_layer, GColorWhite);
+     text_layer_set_background_color(&calendar_date_layer, GColorClear);
+     text_layer_set_font(&calendar_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
+     layer_add_child(&animated_layer[CALENDAR_LAYER], &calendar_date_layer.layer);
+     text_layer_set_text(&calendar_date_layer, "No Upcoming");
+     
+     
+     text_layer_init(&calendar_text_layer, GRect(6, 15, 132, 28));
+     text_layer_set_text_alignment(&calendar_text_layer, GTextAlignmentLeft);
+     text_layer_set_text_color(&calendar_text_layer, GColorWhite);
+     text_layer_set_background_color(&calendar_text_layer, GColorClear);
+     text_layer_set_font(&calendar_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+     layer_add_child(&animated_layer[CALENDAR_LAYER], &calendar_text_layer.layer);
+     text_layer_set_text(&calendar_text_layer, "Appointment");
+     
+     
+     
+     //init music layer
+     layer_init(&animated_layer[MUSIC_LAYER], GRect(144, 124, 144, 45));
+     layer_add_child(&window.layer, &animated_layer[MUSIC_LAYER]);
+     
+     text_layer_init(&music_artist_layer, GRect(6, 0, 132, 21));
+     text_layer_set_text_alignment(&music_artist_layer, GTextAlignmentLeft);
+     text_layer_set_text_color(&music_artist_layer, GColorWhite);
+     text_layer_set_background_color(&music_artist_layer, GColorClear);
+     text_layer_set_font(&music_artist_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
+     layer_add_child(&animated_layer[MUSIC_LAYER], &music_artist_layer.layer);
+     text_layer_set_text(&music_artist_layer, "Artist");
+     
+     
+     text_layer_init(&music_song_layer, GRect(6, 15, 132, 28));
+     text_layer_set_text_alignment(&music_song_layer, GTextAlignmentLeft);
+     text_layer_set_text_color(&music_song_layer, GColorWhite);
+     text_layer_set_background_color(&music_song_layer, GColorClear);
+     text_layer_set_font(&music_song_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+     layer_add_child(&animated_layer[MUSIC_LAYER], &music_song_layer.layer);
+     text_layer_set_text(&music_song_layer, "Title");
+     */
     
     
     //init background layer MOI
     layer_init(&background_layer, GRect(0, 0, 144, 168));
     background_layer.update_proc = &background_layer_update_callback;
     layer_add_child(&window.layer, &background_layer);
-	   
+    
     
     window_set_click_config_provider(&window, (ClickConfigProvider) config_provider);
     
@@ -797,7 +794,7 @@ ________________________________________________________________________________
     active_layer = INFO_LAYER;
     
 	reset();
-
+    
 }
 
 
