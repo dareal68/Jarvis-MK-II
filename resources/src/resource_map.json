@@ -50,12 +50,6 @@
            }
            ,
            {
-           "type": "png",
-           "defName": "IMAGE_BATTERY",
-           "file": "images/battery.png"
-           }
-           ,
-           {
            "type": "font",
            "defName": "FONT_ROBOTO_CONDENSED_21",
            "file": "fonts/Roboto-Condensed.ttf"
@@ -82,14 +76,14 @@
            ,
            {
            "type": "font",
-           "defName": "FONT_MAKISUPA_21",
-           "file": "fonts/Makisupa.ttf"
+           "defName": "FONT_IRONMAN_21",
+           "file": "fonts/Ironman.ttf"
            }
            ,
            {
            "type": "font",
-           "defName": "FONT_MAKISUPA_12",
-           "file": "fonts/Makisupa.ttf"
+           "defName": "FONT_IRONMAN_12",
+           "file": "fonts/Ironman.ttf"
            }
            ,
            {
@@ -100,8 +94,8 @@
            ,
            {
            "type": "font",
-           "defName": "FONT_MAKISUPA_26",
-           "file": "fonts/Makisupa.ttf"
+           "defName": "FONT_IRONMAN_30",
+           "file": "fonts/Ironman.ttf"
            }
  ]
 }
