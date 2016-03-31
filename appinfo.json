@@ -1,0 +1,20 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "dareal68",
+    "enableMultiJS": true,
+    "longName": "Jarvis MK II",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "Jarvis MK II",
+    "uuid": "48dda222-c5ca-4fab-bbf3-fab8a9dd95ec",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
