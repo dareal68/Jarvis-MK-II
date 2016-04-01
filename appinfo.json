@@ -1,6 +1,10 @@
 {
-    "appKeys": {},
+    "appKeys": {
+        "KEY_CONDITIONS": 1,
+        "KEY_TEMPERATURE": 0
+    },
     "capabilities": [
+        "location",
         "configurable"
     ],
     "companyName": "Denice",
@@ -8,7 +12,25 @@
     "longName": "Jarvis MK II",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/background.png",
+                "name": "IMAGE_BACKGROUND",
+                "type": "bitmap"
+            },
+            {
+                "compatibility": "2.7",
+                "file": "fonts/perfect-dos-vga.ttf",
+                "name": "FONT_PERFECT_DOS_20",
+                "type": "font"
+            },
+            {
+                "compatibility": "2.7",
+                "file": "fonts/perfect-dos-vga.ttf",
+                "name": "FONT_PERFECT_DOS_48",
+                "type": "font"
+            }
+        ]
     },
     "sdkVersion": "3",
     "shortName": "Jarvis MK II",
@@ -17,7 +39,7 @@
         "basalt",
         "chalk"
     ],
-    "uuid": "0620ea08-8f74-46df-80b2-1970a22e7eae",
+    "uuid": "7723f4f3-66ed-4532-b43d-6eefd74289c5",
     "versionLabel": "1.0",
     "watchapp": {
         "watchface": true
