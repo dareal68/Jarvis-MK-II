@@ -1,9 +1,9 @@
 {
     "appKeys": {},
     "capabilities": [
-        ""
+        "configurable"
     ],
-    "companyName": "dareal68",
+    "companyName": "Denice",
     "enableMultiJS": true,
     "longName": "Jarvis MK II",
     "projectType": "native",
@@ -12,9 +12,14 @@
     },
     "sdkVersion": "3",
     "shortName": "Jarvis MK II",
-    "uuid": "48dda222-c5ca-4fab-bbf3-fab8a9dd95ec",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "0620ea08-8f74-46df-80b2-1970a22e7eae",
     "versionLabel": "1.0",
     "watchapp": {
-        "watchface": false
+        "watchface": true
     }
 }
