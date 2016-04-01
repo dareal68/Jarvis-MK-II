@@ -16,6 +16,7 @@
             {
                 "file": "images/background.png",
                 "name": "IMAGE_BACKGROUND",
+                "targetPlatforms": null,
                 "type": "bitmap"
             },
             {

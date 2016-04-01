@@ -1,4 +1,4 @@
-var myAPIKey = '';
+var myAPIKey = '639b118486459524ae5126ef9ea0ae68';
 
 var xhrRequest = function (url, type, callback) {
   var xhr = new XMLHttpRequest();
